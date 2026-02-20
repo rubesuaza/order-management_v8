@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.management.infrastructure.adapters.in.web.OrderControllerTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-02-20T00:12:25" hostname="RubenS" time="1.255">
+  <properties/>
+  <testcase name="payOrder_whenNotExists_returns404()" classname="com.example.management.infrastructure.adapters.in.web.OrderControllerTest" time="0.417"/>
+  <testcase name="payOrder_whenExists_returns200AndBody()" classname="com.example.management.infrastructure.adapters.in.web.OrderControllerTest" time="0.21"/>
+  <testcase name="createOrder_validRequest_returns201AndBody()" classname="com.example.management.infrastructure.adapters.in.web.OrderControllerTest" time="0.549"/>
+  <testcase name="getOrder_whenExists_returns200AndBody()" classname="com.example.management.infrastructure.adapters.in.web.OrderControllerTest" time="0.038"/>
+  <testcase name="getOrder_whenNotExists_returns404()" classname="com.example.management.infrastructure.adapters.in.web.OrderControllerTest" time="0.017"/>
+  <system-out><![CDATA[2026-02-19T19:12:21.877-05:00  INFO 38964 --- [management] [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.example.management.infrastructure.adapters.in.web.OrderControllerTest]: OrderControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-02-19T19:12:22.264-05:00  INFO 38964 --- [management] [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.example.management.ManagementApplication for test class com.example.management.infrastructure.adapters.in.web.OrderControllerTest
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-02-19T19:12:22.750-05:00  INFO 38964 --- [management] [    Test worker] c.e.m.i.a.in.web.OrderControllerTest     : Starting OrderControllerTest using Java 17.0.18 with PID 38964 (started by root in /root/agent_code_generator/workspaces/order_management_workspace/order-management_v8)
+2026-02-19T19:12:22.756-05:00  INFO 38964 --- [management] [    Test worker] c.e.m.i.a.in.web.OrderControllerTest     : The following 1 profile is active: "dev"
+2026-02-19T19:12:25.374-05:00  INFO 38964 --- [management] [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-02-19T19:12:25.376-05:00  INFO 38964 --- [management] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-02-19T19:12:25.385-05:00  INFO 38964 --- [management] [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 4 ms
+2026-02-19T19:12:25.414-05:00  INFO 38964 --- [management] [    Test worker] c.e.m.i.a.in.web.OrderControllerTest     : Started OrderControllerTest in 3.124 seconds (process running for 27.011)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
