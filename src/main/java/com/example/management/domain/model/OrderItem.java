@@ -61,4 +61,9 @@ public final class OrderItem {
     public int hashCode() {
         return Objects.hash(productId, quantity, unitPrice);
     }
+
+    @Override
+    public String toString() {
+        return "OrderItem{" + "productId=" + productId + ", quantity=" + quantity + ", unitPrice=" + unitPrice + '}';
+    }
 }

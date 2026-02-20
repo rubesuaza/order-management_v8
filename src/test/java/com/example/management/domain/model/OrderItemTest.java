@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class OrderItemTest {
 
-    private static final UUID PRODUCT_ID = UUID.randomUUID();
+    private static final UUID PRODUCT_ID = UUID.fromString("a1b2c3d4-e5f6-7890-1234-567890abcdef");
     private static final Money VALID_PRICE = new Money(new BigDecimal("5.00"));
 
     @Test

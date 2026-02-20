@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.management.infrastructure.adapters.out.OrderPersistenceAdapterTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-02-20T00:12:26" hostname="RubenS" time="0.519">
+<testsuite name="com.example.management.infrastructure.adapters.out.OrderPersistenceAdapterTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-02-20T00:24:27" hostname="RubenS" time="4.192">
   <properties/>
-  <testcase name="save_newOrder_callsMapperAndRepository()" classname="com.example.management.infrastructure.adapters.out.OrderPersistenceAdapterTest" time="0.447"/>
-  <testcase name="findById_whenExists_returnsMappedOrder()" classname="com.example.management.infrastructure.adapters.out.OrderPersistenceAdapterTest" time="0.023"/>
-  <testcase name="save_existingOrder_updatesEntityAndSaves()" classname="com.example.management.infrastructure.adapters.out.OrderPersistenceAdapterTest" time="0.014"/>
-  <testcase name="findById_whenNotExists_returnsEmpty()" classname="com.example.management.infrastructure.adapters.out.OrderPersistenceAdapterTest" time="0.008"/>
+  <testcase name="save_newOrder_callsMapperAndRepository()" classname="com.example.management.infrastructure.adapters.out.OrderPersistenceAdapterTest" time="4.106"/>
+  <testcase name="findById_whenExists_returnsMappedOrder()" classname="com.example.management.infrastructure.adapters.out.OrderPersistenceAdapterTest" time="0.018"/>
+  <testcase name="save_existingOrder_updatesEntityAndSaves()" classname="com.example.management.infrastructure.adapters.out.OrderPersistenceAdapterTest" time="0.019"/>
+  <testcase name="findById_whenNotExists_returnsEmpty()" classname="com.example.management.infrastructure.adapters.out.OrderPersistenceAdapterTest" time="0.029"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

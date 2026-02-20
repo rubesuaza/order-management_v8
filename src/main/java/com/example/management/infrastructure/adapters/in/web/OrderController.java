@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/v1/orders")
@@ -35,7 +34,7 @@ public class OrderController {
     public ResponseEntity<CreateOrderResponse> createOrder(@Valid @RequestBody CreateOrderRequest request) {
         List<CreateOrderUseCase.OrderItemCommand> items = request.items().stream()
             .map(i -> new CreateOrderUseCase.OrderItemCommand(i.productId(), i.quantity(), i.unitPrice()))
-            .collect(Collectors.toList());
+            .toList();
         var order = createOrderUseCase.create(request.customerId(), items);
         CreateOrderResponse body = new CreateOrderResponse(
             order.getId().getValue(),
@@ -67,7 +66,7 @@ public class OrderController {
                 i.getQuantity(),
                 i.getUnitPrice().getAmount()
             ))
-            .collect(Collectors.toList());
+            .toList();
         return new OrderResponse(
             order.getId().getValue(),
             order.getCustomerId(),

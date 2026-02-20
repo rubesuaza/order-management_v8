@@ -36,7 +36,7 @@ public class OrderJpaEntity {
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "order", cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REFRESH, CascadeType.DETACH}, orphanRemoval = false, fetch = FetchType.LAZY)
     private List<OrderItemJpaEntity> items = new ArrayList<>();
 
     protected OrderJpaEntity() {}

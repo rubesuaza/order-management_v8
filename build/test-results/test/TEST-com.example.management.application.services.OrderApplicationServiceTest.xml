@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.management.application.services.OrderApplicationServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-02-20T00:12:20" hostname="RubenS" time="1.14">
+<testsuite name="com.example.management.application.services.OrderApplicationServiceTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2026-02-20T00:24:44" hostname="RubenS" time="0.154">
   <properties/>
-  <testcase name="getById_whenOrderExists_returnsOptionalWithOrder()" classname="com.example.management.application.services.OrderApplicationServiceTest" time="0.974"/>
-  <testcase name="getById_whenOrderNotExists_returnsEmpty()" classname="com.example.management.application.services.OrderApplicationServiceTest" time="0.033"/>
-  <testcase name="create_withValidItems_savesAndReturnsOrder()" classname="com.example.management.application.services.OrderApplicationServiceTest" time="0.049"/>
-  <testcase name="pay_whenOrderExists_marksAsPaidAndSaves()" classname="com.example.management.application.services.OrderApplicationServiceTest" time="0.023"/>
-  <testcase name="pay_whenOrderNotExists_returnsEmpty()" classname="com.example.management.application.services.OrderApplicationServiceTest" time="0.02"/>
+  <testcase name="getById_whenOrderExists_returnsOptionalWithOrder()" classname="com.example.management.application.services.OrderApplicationServiceTest" time="0.102"/>
+  <testcase name="getById_whenOrderNotExists_returnsEmpty()" classname="com.example.management.application.services.OrderApplicationServiceTest" time="0.008"/>
+  <testcase name="create_withValidItems_savesAndReturnsOrder()" classname="com.example.management.application.services.OrderApplicationServiceTest" time="0.011"/>
+  <testcase name="pay_whenOrderExists_marksAsPaidAndSaves()" classname="com.example.management.application.services.OrderApplicationServiceTest" time="0.009"/>
+  <testcase name="pay_whenOrderNotExists_returnsEmpty()" classname="com.example.management.application.services.OrderApplicationServiceTest" time="0.009"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

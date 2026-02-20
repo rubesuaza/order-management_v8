@@ -1,5 +1,7 @@
 package com.example.management.infrastructure.adapters.in.web;
 
+import com.example.management.domain.exception.CurrencyMismatchException;
+import com.example.management.domain.exception.InvalidItemException;
 import com.example.management.domain.exception.InvalidOrderStateException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,11 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(InvalidOrderStateException.class)
     public ResponseEntity<Map<String, String>> handleInvalidOrderState(InvalidOrderStateException ex) {
         return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of("error", ex.getMessage()));
+    }
+
+    @ExceptionHandler({ InvalidItemException.class, CurrencyMismatchException.class })
+    public ResponseEntity<Map<String, String>> handleDomainValidation(RuntimeException ex) {
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Map.of("error", ex.getMessage()));
     }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)

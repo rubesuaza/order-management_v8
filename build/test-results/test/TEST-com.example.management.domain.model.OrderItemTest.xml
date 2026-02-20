@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.management.domain.model.OrderItemTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-02-20T00:12:21" hostname="RubenS" time="0.085">
+<testsuite name="com.example.management.domain.model.OrderItemTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-02-20T00:24:44" hostname="RubenS" time="0.023">
   <properties/>
-  <testcase name="create_negativeUnitPrice_throwsInvalidItemException()" classname="com.example.management.domain.model.OrderItemTest" time="0.011"/>
-  <testcase name="create_quantityNegative_throwsInvalidItemException()" classname="com.example.management.domain.model.OrderItemTest" time="0.015"/>
-  <testcase name="create_quantityZero_throwsInvalidItemException()" classname="com.example.management.domain.model.OrderItemTest" time="0.005"/>
-  <testcase name="create_validQuantityAndPrice_succeeds()" classname="com.example.management.domain.model.OrderItemTest" time="0.006"/>
+  <testcase name="create_negativeUnitPrice_throwsInvalidItemException()" classname="com.example.management.domain.model.OrderItemTest" time="0.005"/>
+  <testcase name="create_quantityNegative_throwsInvalidItemException()" classname="com.example.management.domain.model.OrderItemTest" time="0.002"/>
+  <testcase name="create_quantityZero_throwsInvalidItemException()" classname="com.example.management.domain.model.OrderItemTest" time="0.002"/>
+  <testcase name="create_validQuantityAndPrice_succeeds()" classname="com.example.management.domain.model.OrderItemTest" time="0.001"/>
   <testcase name="lineTotal_returnsUnitPriceTimesQuantity()" classname="com.example.management.domain.model.OrderItemTest" time="0.002"/>
-  <testcase name="create_zeroUnitPrice_succeeds()" classname="com.example.management.domain.model.OrderItemTest" time="0.012"/>
+  <testcase name="create_zeroUnitPrice_succeeds()" classname="com.example.management.domain.model.OrderItemTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

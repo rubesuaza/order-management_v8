@@ -23,8 +23,9 @@ public class OrderPersistenceAdapter implements OrderRepository {
 
     @Override
     public Order save(Order order) {
-        if (jpaRepository.existsById(order.getId().getValue())) {
-            OrderJpaEntity existing = jpaRepository.getReferenceById(order.getId().getValue());
+        Optional<OrderJpaEntity> existingOpt = jpaRepository.findById(order.getId().getValue());
+        if (existingOpt.isPresent()) {
+            OrderJpaEntity existing = existingOpt.get();
             existing.setStatus(order.getStatus().name());
             existing.setTotalAmount(order.getTotalAmount().getAmount());
             existing.setCurrency(order.getTotalAmount().getCurrency());

@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Component
 public class OrderMapper {
@@ -18,7 +17,7 @@ public class OrderMapper {
         String currency = entity.getCurrency();
         List<OrderItem> items = entity.getItems().stream()
             .map(e -> new OrderItem(e.getProductId(), e.getQuantity(), new Money(e.getUnitPrice(), currency)))
-            .collect(Collectors.toList());
+            .toList();
         Money totalAmount = new Money(entity.getTotalAmount(), currency);
         return Order.reconstitute(
             new OrderId(entity.getId()),
@@ -47,7 +46,7 @@ public class OrderMapper {
                 item.getQuantity(),
                 item.getUnitPrice().getAmount()
             ))
-            .collect(Collectors.toList());
+            .toList();
         entity.setItems(itemEntities);
         return entity;
     }

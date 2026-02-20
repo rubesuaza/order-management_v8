@@ -14,7 +14,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Service
 public class OrderApplicationService implements CreateOrderUseCase, GetOrderUseCase, PayOrderUseCase {
@@ -30,7 +29,7 @@ public class OrderApplicationService implements CreateOrderUseCase, GetOrderUseC
     public Order create(UUID customerId, List<CreateOrderUseCase.OrderItemCommand> items) {
         List<OrderItem> domainItems = items.stream()
             .map(cmd -> new OrderItem(cmd.productId(), cmd.quantity(), new Money(cmd.unitPrice())))
-            .collect(Collectors.toList());
+            .toList();
         Order order = Order.create(OrderId.generate(), customerId, domainItems);
         return orderRepository.save(order);
     }

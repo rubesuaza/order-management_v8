@@ -49,9 +49,9 @@ class OrderPersistenceAdapterTest {
         );
         OrderJpaEntity entity = new OrderJpaEntity(
             ORDER_ID, CUSTOMER_ID, "PENDING",
-            new BigDecimal("10.00"), "USD", LocalDateTime.now()
+            new BigDecimal("10.00"), "USD", LocalDateTime.of(2023, 1, 1, 10, 0, 0)
         );
-        when(jpaRepository.existsById(ORDER_ID)).thenReturn(false);
+        when(jpaRepository.findById(ORDER_ID)).thenReturn(Optional.empty());
         when(mapper.toEntity(order)).thenReturn(entity);
 
         // Act
@@ -74,10 +74,9 @@ class OrderPersistenceAdapterTest {
         order.markAsPaid();
         OrderJpaEntity existingEntity = new OrderJpaEntity(
             ORDER_ID, CUSTOMER_ID, "PENDING",
-            new BigDecimal("10.00"), "USD", LocalDateTime.now()
+            new BigDecimal("20.00"), "USD", LocalDateTime.of(2023, 1, 1, 10, 0, 0)
         );
-        when(jpaRepository.existsById(ORDER_ID)).thenReturn(true);
-        when(jpaRepository.getReferenceById(ORDER_ID)).thenReturn(existingEntity);
+        when(jpaRepository.findById(ORDER_ID)).thenReturn(Optional.of(existingEntity));
 
         // Act
         Order result = adapter.save(order);
@@ -97,14 +96,14 @@ class OrderPersistenceAdapterTest {
         Order order = Order.reconstitute(
             orderId,
             CUSTOMER_ID,
-            LocalDateTime.now(),
+            LocalDateTime.of(2023, 1, 1, 10, 0, 0),
             List.of(new OrderItem(UUID.randomUUID(), 2, TEN_USD)),
             TEN_USD.multiply(2),
             OrderStatus.PENDING
         );
         OrderJpaEntity entity = new OrderJpaEntity(
             ORDER_ID, CUSTOMER_ID, "PENDING",
-            new BigDecimal("20.00"), "USD", LocalDateTime.now()
+            new BigDecimal("20.00"), "USD", LocalDateTime.of(2023, 1, 1, 10, 0, 0)
         );
         when(jpaRepository.findById(ORDER_ID)).thenReturn(Optional.of(entity));
         when(mapper.toDomain(entity)).thenReturn(order);

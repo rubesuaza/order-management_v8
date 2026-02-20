@@ -23,7 +23,7 @@ class MoneyTest {
 
     @Test
     void add_differentCurrency_throwsCurrencyMismatchException() {
-        Money usd = new Money(new BigDecimal("10.00"), "USD");
+        Money usd = new Money(new BigDecimal("10.00"), USD);
         Money eur = new Money(new BigDecimal("5.00"), "EUR");
         assertThrows(CurrencyMismatchException.class, () -> usd.add(eur));
     }
@@ -39,7 +39,7 @@ class MoneyTest {
 
     @Test
     void subtract_differentCurrency_throwsCurrencyMismatchException() {
-        Money usd = new Money(new BigDecimal("20.00"), "USD");
+        Money usd = new Money(new BigDecimal("20.00"), USD);
         Money eur = new Money(new BigDecimal("5.00"), "EUR");
         assertThrows(CurrencyMismatchException.class, () -> usd.subtract(eur));
     }
@@ -55,7 +55,7 @@ class MoneyTest {
     @Test
     void defaultCurrency_isUsd() {
         Money m = new Money(new BigDecimal("10.00"));
-        assertEquals("USD", m.getCurrency());
+        assertEquals(USD, m.getCurrency());
     }
 
     @Test

@@ -56,10 +56,10 @@ public final class Order {
         if (items.isEmpty()) {
             throw new IllegalArgumentException("Order must have at least one item");
         }
-        Money total = items.get(0).lineTotal();
-        for (int i = 1; i < items.size(); i++) {
-            total = total.add(items.get(i).lineTotal());
-        }
+        Money total = items.stream()
+            .map(OrderItem::lineTotal)
+            .reduce(Money::add)
+            .orElseThrow(() -> new IllegalArgumentException("Order must have at least one item"));
         return new Order(id, customerId, LocalDateTime.now(), items, total, OrderStatus.PENDING);
     }
 
@@ -94,11 +94,15 @@ public final class Order {
         if (status != OrderStatus.PENDING) {
             throw new InvalidOrderStateException("Only PENDING orders can be marked as PAID");
         }
-        if (totalAmount.getAmount().compareTo(MINIMUM_ORDER_AMOUNT.getAmount()) < 0) {
+        if (!meetsMinimumOrderAmount()) {
             throw new InvalidOrderStateException(
                 "Order total must be at least 10.00 " + totalAmount.getCurrency() + " to be placed");
         }
         this.status = OrderStatus.PAID;
+    }
+
+    private boolean meetsMinimumOrderAmount() {
+        return !totalAmount.isLessThan(MINIMUM_ORDER_AMOUNT);
     }
 
     /**
