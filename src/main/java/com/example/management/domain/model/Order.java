@@ -34,6 +34,19 @@ public final class Order {
     }
 
     /**
+     * Reconstitutes an order from persistence. Use when loading an existing aggregate.
+     */
+    public static Order reconstitute(OrderId id, UUID customerId, LocalDateTime createdAt,
+                                    List<OrderItem> items, Money totalAmount, OrderStatus status) {
+        Objects.requireNonNull(id, "id must not be null");
+        Objects.requireNonNull(customerId, "customerId must not be null");
+        Objects.requireNonNull(items, "items must not be null");
+        Objects.requireNonNull(totalAmount, "totalAmount must not be null");
+        Objects.requireNonNull(status, "status must not be null");
+        return new Order(id, customerId, createdAt, items, totalAmount, status);
+    }
+
+    /**
      * Creates a new order with at least one item. Total is computed from line totals.
      */
     public static Order create(OrderId id, UUID customerId, List<OrderItem> items) {
