@@ -52,7 +52,6 @@ public class OrderJpaEntity {
     }
 
     public UUID getId() { return id; }
-    public void setId(UUID id) { this.id = id; }
     public UUID getCustomerId() { return customerId; }
     public void setCustomerId(UUID customerId) { this.customerId = customerId; }
     public String getStatus() { return status; }
@@ -62,7 +61,6 @@ public class OrderJpaEntity {
     public String getCurrency() { return currency; }
     public void setCurrency(String currency) { this.currency = currency; }
     public LocalDateTime getCreatedAt() { return createdAt; }
-    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
     public List<OrderItemJpaEntity> getItems() { return items; }
     public void setItems(List<OrderItemJpaEntity> items) { this.items = items; }
 }

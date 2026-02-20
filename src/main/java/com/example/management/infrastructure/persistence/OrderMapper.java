@@ -16,7 +16,7 @@ public class OrderMapper {
     public Order toDomain(OrderJpaEntity entity) {
         String currency = entity.getCurrency();
         List<OrderItem> items = entity.getItems().stream()
-            .map(e -> new OrderItem(e.getProductId(), e.getQuantity(), new Money(e.getUnitPrice(), currency)))
+            .map(e -> new OrderItem(e.getId(), e.getProductId(), e.getQuantity(), new Money(e.getUnitPrice(), currency)))
             .toList();
         Money totalAmount = new Money(entity.getTotalAmount(), currency);
         return Order.reconstitute(
@@ -40,7 +40,7 @@ public class OrderMapper {
         );
         List<OrderItemJpaEntity> itemEntities = order.getItems().stream()
             .map(item -> new OrderItemJpaEntity(
-                UUID.randomUUID(),
+                item.getId() != null ? item.getId() : UUID.randomUUID(),
                 entity,
                 item.getProductId(),
                 item.getQuantity(),
