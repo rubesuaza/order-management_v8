@@ -1,9 +1,17 @@
 package com.example.management.application.ports.out;
 
-import com.example.management.domain.OrderRepository;
+import com.example.management.domain.model.Order;
+import com.example.management.domain.model.OrderId;
+
+import java.util.Optional;
 
 /**
- * Output port for persisting and loading orders. Extends the domain repository contract.
+ * Output port for persisting and loading orders (application layer contract).
+ * Infrastructure adapters implement this interface.
  */
-public interface OrderRepository extends com.example.management.domain.OrderRepository {
+public interface OrderRepository {
+
+    Order save(Order order);
+
+    Optional<Order> findById(OrderId orderId);
 }

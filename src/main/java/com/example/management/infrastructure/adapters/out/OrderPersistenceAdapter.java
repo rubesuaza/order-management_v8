@@ -29,12 +29,12 @@ public class OrderPersistenceAdapter implements OrderRepository {
             existing.setStatus(order.getStatus().name());
             existing.setTotalAmount(order.getTotalAmount().getAmount());
             existing.setCurrency(order.getTotalAmount().getCurrency());
-            jpaRepository.save(existing);
-            return order;
+            OrderJpaEntity saved = jpaRepository.save(existing);
+            return mapper.toDomain(saved);
         }
         OrderJpaEntity entity = mapper.toEntity(order);
-        jpaRepository.save(entity);
-        return order;
+        OrderJpaEntity saved = jpaRepository.save(entity);
+        return mapper.toDomain(saved);
     }
 
     @Override

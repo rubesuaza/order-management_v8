@@ -62,5 +62,20 @@ public class OrderJpaEntity {
     public void setCurrency(String currency) { this.currency = currency; }
     public LocalDateTime getCreatedAt() { return createdAt; }
     public List<OrderItemJpaEntity> getItems() { return items; }
-    public void setItems(List<OrderItemJpaEntity> items) { this.items = items; }
+
+    /**
+     * Adds an item and maintains the bidirectional relationship (JPA-friendly).
+     */
+    public void addOrderItem(OrderItemJpaEntity item) {
+        items.add(item);
+        item.setOrder(this);
+    }
+
+    /**
+     * Removes an item and clears the bidirectional link.
+     */
+    public void removeOrderItem(OrderItemJpaEntity item) {
+        items.remove(item);
+        item.setOrder(null);
+    }
 }

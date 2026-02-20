@@ -8,7 +8,6 @@ import com.example.management.domain.model.OrderStatus;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.UUID;
 
 @Component
 public class OrderMapper {
@@ -38,16 +37,16 @@ public class OrderMapper {
             order.getTotalAmount().getCurrency(),
             order.getCreatedAt()
         );
-        List<OrderItemJpaEntity> itemEntities = order.getItems().stream()
-            .map(item -> new OrderItemJpaEntity(
-                item.getId() != null ? item.getId() : UUID.randomUUID(),
-                entity,
+        for (com.example.management.domain.model.OrderItem item : order.getItems()) {
+            OrderItemJpaEntity itemEntity = new OrderItemJpaEntity(
+                item.getId(),
+                null,
                 item.getProductId(),
                 item.getQuantity(),
                 item.getUnitPrice().getAmount()
-            ))
-            .toList();
-        entity.setItems(itemEntities);
+            );
+            entity.addOrderItem(itemEntity);
+        }
         return entity;
     }
 }
